@@ -8,8 +8,6 @@ import { ButtonContainer } from './styles';
 const SingInButton: React.FC = () => {
   const [session] = useSession();
 
-  console.log('session', session);
-
   return session ? (
     <ButtonContainer type="button" onClick={() => signOut()}>
       <FaGithub color="#04d361" />

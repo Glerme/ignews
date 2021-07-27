@@ -5,6 +5,7 @@ import { query as q } from 'faunadb';
 import Providers from 'next-auth/providers';
 
 import { fauna } from '../../../services/fauna';
+import { session } from 'next-auth/client';
 
 export default NextAuth({
   providers: [
@@ -15,6 +16,39 @@ export default NextAuth({
     }),
   ],
   callbacks: {
+    async session(session) {
+      try {
+        const userActiverSubscription = await fauna.query(
+          q.Get(
+            q.Intersection([
+              q.Match(
+                q.Index('subscription_by_user_ref'),
+                q.Select(
+                  'ref',
+                  q.Get(
+                    q.Match(
+                      q.Index('user_by_email'),
+                      q.Casefold(session.user.email),
+                    ),
+                  ),
+                ),
+              ),
+              q.Match(q.Index('subscription_by_status'), 'active'),
+            ]),
+          ),
+        );
+
+        return {
+          ...session,
+          activeSubscription: userActiverSubscription,
+        };
+      } catch (error) {
+        return {
+          ...session,
+          activeSubscription: null,
+        };
+      }
+    },
     async signIn(user, account, profile) {
       const { email } = user;
 

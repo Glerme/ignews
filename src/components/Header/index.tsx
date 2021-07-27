@@ -1,4 +1,5 @@
-import React from 'react';
+import ActiveLink from '../ActiveLink';
+
 import SingInButton from '../SingInButton';
 
 import { Container, Navigation } from './styles';
@@ -9,10 +10,13 @@ const Header: React.FC = () => {
       <div>
         <img src="/images/logo.svg" alt="Logo" />
         <Navigation>
-          <a href="" className="active">
-            Home
-          </a>
-          <a href="">Posts</a>
+          <ActiveLink href="/" activeClassName="active">
+            <a>Home</a>
+          </ActiveLink>
+
+          <ActiveLink href="/posts" prefetch activeClassName="active">
+            <a>Posts</a>
+          </ActiveLink>
         </Navigation>
 
         <SingInButton />
