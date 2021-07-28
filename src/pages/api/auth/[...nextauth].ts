@@ -1,11 +1,8 @@
-import NextAuth from 'next-auth';
-
 import { query as q } from 'faunadb';
-
+import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
 import { fauna } from '../../../services/fauna';
-import { session } from 'next-auth/client';
 
 export default NextAuth({
   providers: [
@@ -18,7 +15,7 @@ export default NextAuth({
   callbacks: {
     async session(session) {
       try {
-        const userActiverSubscription = await fauna.query(
+        const userActiveSubscription = await fauna.query(
           q.Get(
             q.Intersection([
               q.Match(
@@ -38,11 +35,13 @@ export default NextAuth({
           ),
         );
 
+        console.log('userActiveSubscription', userActiveSubscription);
+
         return {
           ...session,
-          activeSubscription: userActiverSubscription,
+          activeSubscription: userActiveSubscription,
         };
-      } catch (error) {
+      } catch {
         return {
           ...session,
           activeSubscription: null,

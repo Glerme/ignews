@@ -20,24 +20,43 @@ export const PostArticle = styled.article`
     color: var(--gray-300);
     margin-top: 1.5rem;
   }
+`;
 
-  div {
-    margin-top: 2rem;
-    line-height: 2rem;
-    font-size: 1.125rem;
-    color: var(--gray-100);
+export const PostContent = styled.div`
+  margin-top: 2rem;
+  line-height: 2rem;
+  font-size: 1.125rem;
+  color: var(--gray-100);
 
-    p,
-    ul {
-      margin: 1.5rem 0;
+  p,
+  ul {
+    margin: 1.5rem 0;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+
+    li {
+      margin: 0.5rem 0;
     }
+  }
+`;
 
-    ul {
-      padding-left: 1.5rem;
+export const ContinueReading = styled.div`
+  padding: 2rem;
+  text-align: center;
+  background: var(--gray-850);
+  border-radius: 100px;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 4rem 0 2rem;
 
-      li {
-        margin: 0.5rem 0;
-      }
+  a {
+    color: var(--yellow-500);
+    margin-left: 0.5rem;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;

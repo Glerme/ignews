@@ -17,3 +17,6 @@ $ yarn start
 ```
 
 The app is running on: `http://localhost:3000`
+
+// Link do figma
+https://www.figma.com/file/kXxOlSOmW1YvYuhRrFvIaU/ig.news?node-id=1%3A2

@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/client';
 import { RichText } from 'prismic-dom';
 import { getPrismicClient } from '../../services/prismic';
 
-import { Container, PostArticle } from './post';
+import { Container, PostArticle, PostContent } from './post';
 
 interface IPost {
   post: {
@@ -27,7 +27,7 @@ const Post: React.FC<IPost> = ({ post }) => {
         <PostArticle>
           <h1>{post.title}</h1>
           <time>{post.updated}</time>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <PostContent dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
       </Container>
     </>
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const session = await getSession({ req });
   const { slug } = params;
 
-  if (!session.activeSubscription) {
+  if (!session?.activeSubscription) {
     return {
       redirect: {
         destination: '/',
@@ -49,8 +49,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     };
   }
-
-  console.log(session);
 
   const prismic = getPrismicClient(req);
 

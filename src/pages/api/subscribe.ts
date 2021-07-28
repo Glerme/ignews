@@ -48,8 +48,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       line_items: [{ price: 'price_1JHwApLh6DET7sOGR77FNlEK', quantity: 1 }],
       mode: 'subscription',
       allow_promotion_codes: true,
-      success_url: 'http://localhost:3000/posts',
-      cancel_url: 'http://localhost:3000/',
+      success_url: process.env.STRIPE_SUCCESS_URL,
+      cancel_url: process.env.STRIPE_CANCEL_URL,
     });
 
     return res.status(200).json({ sessionId: stripeCheckoutSession.id });
