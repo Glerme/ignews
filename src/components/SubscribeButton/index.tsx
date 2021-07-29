@@ -2,7 +2,6 @@ import { useSession, signIn } from 'next-auth/client';
 import { useRouter } from 'next/router';
 import { api } from '../../services/api';
 
-import { stripe } from '../../services/stripe';
 import { getStripeJs } from '../../services/stripe-js';
 import { ContainerButton } from './styles';
 
