@@ -29,14 +29,14 @@ Projeto feito em NextJs, para a criação de um blog.
 
 Realizado pela **[@Rocketseat](https://github.com/Rocketseat)** durante o Ignite, trilha ReactJS.
 
-<hr/>
 <br/>
+
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/kXxOlSOmW1YvYuhRrFvIaU/ig.news?node-id=1%3A2). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-<hr/>
 <br/>
+
 ## ✨ Tecnologias utilizadas
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -47,8 +47,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Stripe](https://stripe.com/br)
 - [Prismic CMS](https://prismic.io/)
 
-<hr/>
 <br/>
+
 ## 🚀 Como executar
 
 - Você precisa instalar o [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/) para executar este projeto.
@@ -72,7 +72,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 O aplicativo estará para acesso em seu navegador em: `http://localhost:3000`
 
 <br/>
-<br/>
+
 ## 📄 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
