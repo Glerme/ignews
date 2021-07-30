@@ -38,7 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       event = stripe.webhooks.constructEvent(
         buf,
         secret,
-        process.env.STRIPE_K_SECRET,
+        process.env.STRIPE_WEBHOOK_SECRET,
       );
     } catch (error) {
       return res.status(400).send(`Webhook error ${error.message}`);
